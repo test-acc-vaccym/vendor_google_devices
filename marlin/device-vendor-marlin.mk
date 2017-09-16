@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The Pure Nexus Project
+# Copyright (C) 2017 The Pure Nexus Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,39 +21,16 @@ PRODUCT_PACKAGES += \
 
 # Prebuilt /apps
 PRODUCT_PACKAGES += \
-    atfwd \
-    colorservice \
-    datastatusnotification \
-    embms \
-    fastdormancy \
-    ims \
-    imssettings \
-    NetworkSetting \
-    QAS_DVC_MSP \
-    QtiTelephonyService \
-    radioconfig \
-    RCSBootstraputil \
-    SecureExtAuthService \
-    shutdownlistener \
-    SSRestartDetector \
-    TimeService \
     Tycho \
-    VZWAPNLib \
-    vzw_msdc_api \
-    xdivert
+    VZWAPNLib
 
 # Prebuilt /framework
 PRODUCT_PACKAGES += \
-    embmslibrary \
-    qcrilhook \
-    QtiTelephonyServicelibrary \
-    rcsservice \
     VerizonUnifiedSettings
 
 # Prebuilt /priv-app
 PRODUCT_PACKAGES += \
     AppDirectedSMSService \
-    CarrierEntitlement \
     CarrierServices \
     CNEService \
     ConnMO \
@@ -62,11 +39,10 @@ PRODUCT_PACKAGES += \
     DMService \
     GCS \
     GoogleCarrierConfig \
-    HotwordEnrollment \
+    HotwordEnrollmentWCD9335 \
     OBDM_Permissions \
     obdm_stub \
     OemDmTrigger \
-    OobConfig \
     qcrilmsgtunnel \
     SprintDM \
     SprintHM \
@@ -78,8 +54,6 @@ PRODUCT_PACKAGES += \
 
 # Symlinks
 PRODUCT_PACKAGES += \
-    libimsmedia_jni.so \
-    libimscamera_jni.so \
     libdmengine.so \
     libdmjavaplugin.so
 
