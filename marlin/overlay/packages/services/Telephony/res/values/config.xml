@@ -82,7 +82,7 @@
     <bool name="auto_retry_enabled">false</bool>
 
     <!-- Determine whether we want to play local DTMF tones in a call, or
-         just let the radio/BP handle playing of the tones with unholy. -->
+         just let the radio/BP handle playing of the tones. -->
     <!-- DEPRECATED: Use CarrierConfigManager#KEY_ALLOW_LOCAL_DTMF_TONES_BOOL -->
     <bool name="allow_local_dtmf_tones">true</bool>
 
@@ -158,7 +158,7 @@
     <!-- Class name for the network operator settings activity [DO NOT TRANSLATE] -->
     <string name="network_operator_settings_class" translatable="false">com.android.phone.NetworkSetting</string>
 
-    <!-- CDMA activation goes through unholy HFA -->
+    <!-- CDMA activation goes through HFA -->
     <!-- DEPRECATED: Use CarrierConfigManager#KEY_USE_HFA_FOR_PROVISIONING_BOOL -->
     <bool name="config_use_hfa_for_provisioning">false</bool>
 
