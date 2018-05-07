@@ -96,7 +96,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.graphics.allocator@2.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.graphics.allocator@2.0-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.graphics.composer@2.1-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.graphics.composer@2.1-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.keymaster@3.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.keymaster@3.0-service:google \
-    vendor/google_devices/marlin/vendor/bin/hw/android.hardware.light@2.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.light@2.0-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.media.omx@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.omx@1.0-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.memtrack@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.memtrack@1.0-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.nfc@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.nfc@1.0-service:google \
@@ -209,7 +208,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.graphics.allocator@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@2.0-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.composer@2.1-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.keymaster@3.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.keymaster@3.0-service.rc:google \
-    vendor/google_devices/marlin/vendor/etc/init/android.hardware.light@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.light@2.0-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.media.omx@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.omx@1.0-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.memtrack@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.memtrack@1.0-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.nfc@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.nfc@1.0-service.rc:google \
@@ -464,7 +462,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.graphics.composer@2.1-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.graphics.composer@2.1-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3.0-impl.so:google \
-    vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.light@2.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.light@2.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.memtrack@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.memtrack@1.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.nfc@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.nfc@1.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.renderscript@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.renderscript@1.0-impl.so:google \
@@ -484,8 +481,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/lib64/hw/gralloc.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/gralloc.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/hwcomposer.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/hwcomposer.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/keystore.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/keystore.msm8996.so:google \
-    vendor/google_devices/marlin/vendor/lib64/hw/lights.marlin.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/lights.marlin.so:google \
-    vendor/google_devices/marlin/vendor/lib64/hw/lights.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/lights.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/local_time.default.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/local_time.default.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/memtrack.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/memtrack.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/nfc_nci.marlin.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/nfc_nci.marlin.so:google \
@@ -705,7 +700,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/lib/hw/android.hardware.graphics.composer@2.1-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/android.hardware.graphics.composer@2.1-impl.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/android.hardware.graphics.mapper@2.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/android.hardware.keymaster@3.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/android.hardware.keymaster@3.0-impl.so:google \
-    vendor/google_devices/marlin/vendor/lib/hw/android.hardware.light@2.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/android.hardware.light@2.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/android.hardware.memtrack@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/android.hardware.memtrack@1.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/android.hardware.nfc@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/android.hardware.nfc@1.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/android.hardware.renderscript@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/android.hardware.renderscript@1.0-impl.so:google \
@@ -726,8 +720,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/lib/hw/gralloc.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/gralloc.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/hwcomposer.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/hwcomposer.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/keystore.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/keystore.msm8996.so:google \
-    vendor/google_devices/marlin/vendor/lib/hw/lights.marlin.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/lights.marlin.so:google \
-    vendor/google_devices/marlin/vendor/lib/hw/lights.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/lights.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/local_time.default.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/local_time.default.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/memtrack.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/memtrack.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/nfc_nci.marlin.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/nfc_nci.marlin.so:google \

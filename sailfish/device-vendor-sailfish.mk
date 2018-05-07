@@ -83,6 +83,7 @@ PRODUCT_PACKAGES += \
     AppDirectedSMSService \
     Asdiv \
     CarrierServices \
+    CarrierSettings \
     CarrierSetup \
     CNEService \
     ConnMO \
