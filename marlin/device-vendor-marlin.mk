@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2018 Benzo Rom
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -82,7 +81,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AppDirectedSMSService \
     CarrierServices \
-    CarrierSettings \
     CarrierSetup \
     CNEService \
     ConnMO \

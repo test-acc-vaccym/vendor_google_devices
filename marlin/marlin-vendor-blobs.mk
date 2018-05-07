@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2018 Benzo Rom
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -44,6 +43,7 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/proprietary/etc/sysconfig/marlin_common.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/marlin_common.xml:google \
     vendor/google_devices/marlin/proprietary/etc/sysconfig/nexus.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/nexus.xml:google \
     vendor/google_devices/marlin/proprietary/etc/sysconfig/whitelist_com.android.omadm.service.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/whitelist_com.android.omadm.service.xml:google \
+    vendor/google_devices/marlin/proprietary/lib64/hw/bluetooth.default.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/hw/bluetooth.default.so:google \
     vendor/google_devices/marlin/proprietary/lib64/libaptX_encoder.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libaptX_encoder.so:google \
     vendor/google_devices/marlin/proprietary/lib64/libaptXHD_encoder.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libaptXHD_encoder.so:google \
     vendor/google_devices/marlin/proprietary/lib64/lib-imsvideocodec.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/lib-imsvideocodec.so:google \
@@ -51,6 +51,7 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/proprietary/lib64/lib-imsvt.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/lib-imsvt.so:google \
     vendor/google_devices/marlin/proprietary/lib64/lib-imsvtutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/lib-imsvtutils.so:google \
     vendor/google_devices/marlin/proprietary/lib64/librcc.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/librcc.so:google \
+    vendor/google_devices/marlin/proprietary/lib/hw/bluetooth.default.so:$(TARGET_COPY_OUT_SYSTEM)/lib/hw/bluetooth.default.so:google \
     vendor/google_devices/marlin/proprietary/lib/libaptX_encoder.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libaptX_encoder.so:google \
     vendor/google_devices/marlin/proprietary/lib/libaptXHD_encoder.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libaptXHD_encoder.so:google \
     vendor/google_devices/marlin/proprietary/lib/lib-imsvideocodec.so:$(TARGET_COPY_OUT_SYSTEM)/lib/lib-imsvideocodec.so:google \

@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2018 Benzo Rom
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -323,19 +322,6 @@ LOCAL_MODULE_OWNER := google
 LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/priv-app
 LOCAL_SRC_FILES := proprietary/priv-app/CarrierServices/CarrierServices.apk
 LOCAL_CERTIFICATE := PRESIGNED
-LOCAL_MODULE_CLASS := APPS
-LOCAL_PRIVILEGED_MODULE := true
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := CarrierSettings
-LOCAL_MODULE_TAGS := optional
-LOCAL_BUILT_MODULE_STEM := package.apk
-LOCAL_MODULE_OWNER := google
-LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/priv-app
-LOCAL_SRC_FILES := proprietary/priv-app/CarrierSettings/CarrierSettings.apk
-LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
