@@ -78,18 +78,6 @@ LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := ims
-LOCAL_MODULE_TAGS := optional
-LOCAL_BUILT_MODULE_STEM := package.apk
-LOCAL_MODULE_OWNER := google
-LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/app
-LOCAL_SRC_FILES := vendor/app/ims/ims.apk
-LOCAL_CERTIFICATE := platform
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE := imssettings
 LOCAL_MODULE_TAGS := optional
 LOCAL_BUILT_MODULE_STEM := package.apk
@@ -174,18 +162,6 @@ LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := SSRestartDetector
-LOCAL_MODULE_TAGS := optional
-LOCAL_BUILT_MODULE_STEM := package.apk
-LOCAL_MODULE_OWNER := google
-LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/app
-LOCAL_SRC_FILES := vendor/app/SSRestartDetector/SSRestartDetector.apk
-LOCAL_CERTIFICATE := platform
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE := TimeService
 LOCAL_MODULE_TAGS := optional
 LOCAL_BUILT_MODULE_STEM := package.apk
@@ -215,17 +191,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
 LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/framework
 LOCAL_SRC_FILES := vendor/framework/embmslibrary.jar
-LOCAL_CERTIFICATE := PRESIGNED
-LOCAL_MODULE_CLASS := JAVA_LIBRARIES
-LOCAL_MODULE_SUFFIX := $(COMMON_JAVA_PACKAGE_SUFFIX)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := qcrilhook
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_OWNER := google
-LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/framework
-LOCAL_SRC_FILES := vendor/framework/qcrilhook.jar
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := JAVA_LIBRARIES
 LOCAL_MODULE_SUFFIX := $(COMMON_JAVA_PACKAGE_SUFFIX)
@@ -265,6 +230,19 @@ LOCAL_MODULE_SUFFIX := $(COMMON_JAVA_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := SSRestartDetector
+LOCAL_MODULE_TAGS := optional
+LOCAL_BUILT_MODULE_STEM := package.apk
+LOCAL_MODULE_OWNER := google
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_PRODUCT)/app
+LOCAL_SRC_FILES := proprietary/app/SSRestartDetector/SSRestartDetector.apk
+LOCAL_CERTIFICATE := platform
+LOCAL_PRODUCT_MODULE := true
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := PixelThemeOverlay
 LOCAL_MODULE_TAGS := optional
 LOCAL_BUILT_MODULE_STEM := package.apk
@@ -279,6 +257,52 @@ LOCAL_IS_RUNTIME_RESOURCE_OVERLAY := true
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := ims
+LOCAL_MODULE_TAGS := optional
+LOCAL_BUILT_MODULE_STEM := package.apk
+LOCAL_MODULE_OWNER := google
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/app
+LOCAL_SRC_FILES := proprietary/app/ims/ims.apk
+LOCAL_REQUIRED_MODULES := libimsmedia_jni_64.so libimscamera_jni_64.so
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libimsmedia_jni_64.so
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := google
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /system/lib64/libimsmedia_jni.so
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/app/ims/lib/arm64/libimsmedia_jni.so
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
+$(LOCAL_BUILT_MODULE):
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+include $(CLEAR_VARS)
+LOCAL_MODULE := libimscamera_jni_64.so
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := google
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /system/lib64/libimscamera_jni.so
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/app/ims/lib/arm64/libimscamera_jni.so
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
+$(LOCAL_BUILT_MODULE):
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := VZWAPNLib
 LOCAL_MODULE_TAGS := optional
 LOCAL_BUILT_MODULE_STEM := package.apk
@@ -288,17 +312,6 @@ LOCAL_SRC_FILES := proprietary/app/VZWAPNLib/VZWAPNLib.apk
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := VerizonUnifiedSettings
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_OWNER := google
-LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/framework
-LOCAL_SRC_FILES := proprietary/framework/VerizonUnifiedSettings.jar
-LOCAL_CERTIFICATE := PRESIGNED
-LOCAL_MODULE_CLASS := JAVA_LIBRARIES
-LOCAL_MODULE_SUFFIX := $(COMMON_JAVA_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -399,7 +412,7 @@ LOCAL_BUILT_MODULE_STEM := package.apk
 LOCAL_MODULE_OWNER := google
 LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/priv-app
 LOCAL_SRC_FILES := proprietary/priv-app/DMService/DMService.apk
-LOCAL_REQUIRED_MODULES := libdmjavaplugin_32.so libdmengine_32.so
+LOCAL_REQUIRED_MODULES := libdmengine_32.so libdmjavaplugin_32.so
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
@@ -407,13 +420,13 @@ LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := libdmjavaplugin_32.so
+LOCAL_MODULE := libdmengine_32.so
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
 include $(BUILD_SYSTEM)/base_rules.mk
-$(LOCAL_BUILT_MODULE): TARGET := /system/lib/libdmjavaplugin.so
-$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/priv-app/DMService/lib/arm/libdmjavaplugin.so
+$(LOCAL_BUILT_MODULE): TARGET := /system/lib/libdmengine.so
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/priv-app/DMService/lib/arm/libdmengine.so
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
 $(LOCAL_BUILT_MODULE):
 	$(hide) mkdir -p $(dir $@)
@@ -423,13 +436,13 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) ln -sf $(TARGET) $(SYMLINK)
 	$(hide) touch $@
 include $(CLEAR_VARS)
-LOCAL_MODULE := libdmengine_32.so
+LOCAL_MODULE := libdmjavaplugin_32.so
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
 include $(BUILD_SYSTEM)/base_rules.mk
-$(LOCAL_BUILT_MODULE): TARGET := /system/lib/libdmengine.so
-$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/priv-app/DMService/lib/arm/libdmengine.so
+$(LOCAL_BUILT_MODULE): TARGET := /system/lib/libdmjavaplugin.so
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)/priv-app/DMService/lib/arm/libdmjavaplugin.so
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
 $(LOCAL_BUILT_MODULE):
 	$(hide) mkdir -p $(dir $@)
@@ -1013,7 +1026,24 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__df__23
+LOCAL_MODULE := toolbox__dd__23
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := google
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /vendor/bin/toolbox
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/vendor/bin/dd
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
+$(LOCAL_BUILT_MODULE):
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := toybox_vendor__df__24
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1030,7 +1060,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__diff__24
+LOCAL_MODULE := toybox_vendor__diff__25
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1047,7 +1077,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__dirname__25
+LOCAL_MODULE := toybox_vendor__dirname__26
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1064,7 +1094,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__dmesg__26
+LOCAL_MODULE := toybox_vendor__dmesg__27
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1081,7 +1111,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__dos2unix__27
+LOCAL_MODULE := toybox_vendor__dos2unix__28
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1098,7 +1128,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__du__28
+LOCAL_MODULE := toybox_vendor__du__29
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1115,7 +1145,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__echo__29
+LOCAL_MODULE := toybox_vendor__echo__30
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1132,7 +1162,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := grep__egrep__30
+LOCAL_MODULE := grep__egrep__31
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1149,7 +1179,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__env__31
+LOCAL_MODULE := toybox_vendor__env__32
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1166,7 +1196,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__expand__32
+LOCAL_MODULE := toybox_vendor__expand__33
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1183,7 +1213,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__expr__33
+LOCAL_MODULE := toybox_vendor__expr__34
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1200,7 +1230,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__fallocate__34
+LOCAL_MODULE := toybox_vendor__fallocate__35
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1217,7 +1247,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__false__35
+LOCAL_MODULE := toybox_vendor__false__36
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1234,7 +1264,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := grep__fgrep__36
+LOCAL_MODULE := grep__fgrep__37
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1251,7 +1281,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__file__37
+LOCAL_MODULE := toybox_vendor__file__38
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1268,7 +1298,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__find__38
+LOCAL_MODULE := toybox_vendor__find__39
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1285,7 +1315,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__flock__39
+LOCAL_MODULE := toybox_vendor__flock__40
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1302,7 +1332,24 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__free__40
+LOCAL_MODULE := toybox_vendor__fmt__41
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := google
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /vendor/bin/toybox_vendor
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/vendor/bin/fmt
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
+$(LOCAL_BUILT_MODULE):
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := toybox_vendor__free__42
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1319,7 +1366,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__getenforce__41
+LOCAL_MODULE := toybox_vendor__getenforce__43
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1336,12 +1383,29 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__getprop__42
+LOCAL_MODULE := toolbox__getevent__44
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
 include $(BUILD_SYSTEM)/base_rules.mk
-$(LOCAL_BUILT_MODULE): TARGET := /vendor/bin/toybox_vendor
+$(LOCAL_BUILT_MODULE): TARGET := /vendor/bin/toolbox
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/vendor/bin/getevent
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
+$(LOCAL_BUILT_MODULE):
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := toolbox__getprop__45
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := google
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /vendor/bin/toolbox
 $(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/vendor/bin/getprop
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
 $(LOCAL_BUILT_MODULE):
@@ -1353,7 +1417,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__groups__43
+LOCAL_MODULE := toybox_vendor__groups__46
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1370,7 +1434,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__gunzip__44
+LOCAL_MODULE := toybox_vendor__gunzip__47
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1387,7 +1451,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__gzip__45
+LOCAL_MODULE := toybox_vendor__gzip__48
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1404,7 +1468,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__head__46
+LOCAL_MODULE := toybox_vendor__head__49
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1421,7 +1485,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__hostname__47
+LOCAL_MODULE := toybox_vendor__hostname__50
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1438,7 +1502,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__hwclock__48
+LOCAL_MODULE := toybox_vendor__hwclock__51
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1455,7 +1519,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__id__49
+LOCAL_MODULE := toybox_vendor__id__52
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1472,7 +1536,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__ifconfig__50
+LOCAL_MODULE := toybox_vendor__ifconfig__53
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1489,7 +1553,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__inotifyd__51
+LOCAL_MODULE := toybox_vendor__inotifyd__54
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1506,7 +1570,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__insmod__52
+LOCAL_MODULE := toybox_vendor__insmod__55
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1523,7 +1587,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__ionice__53
+LOCAL_MODULE := toybox_vendor__ionice__56
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1540,7 +1604,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__iorenice__54
+LOCAL_MODULE := toybox_vendor__iorenice__57
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1557,7 +1621,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__kill__55
+LOCAL_MODULE := toybox_vendor__kill__58
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1574,7 +1638,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__killall__56
+LOCAL_MODULE := toybox_vendor__killall__59
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1591,7 +1655,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__ln__57
+LOCAL_MODULE := toybox_vendor__ln__60
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1608,7 +1672,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__load_policy__58
+LOCAL_MODULE := toybox_vendor__load_policy__61
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1625,7 +1689,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__log__59
+LOCAL_MODULE := toybox_vendor__log__62
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1642,7 +1706,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__logname__60
+LOCAL_MODULE := toybox_vendor__logname__63
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1659,7 +1723,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__losetup__61
+LOCAL_MODULE := toybox_vendor__losetup__64
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1676,7 +1740,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__ls__62
+LOCAL_MODULE := toybox_vendor__ls__65
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1693,7 +1757,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__lsmod__63
+LOCAL_MODULE := toybox_vendor__lsmod__66
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1710,7 +1774,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__lsof__64
+LOCAL_MODULE := toybox_vendor__lsof__67
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1727,7 +1791,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__lspci__65
+LOCAL_MODULE := toybox_vendor__lspci__68
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1744,7 +1808,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__lsusb__66
+LOCAL_MODULE := toybox_vendor__lsusb__69
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1761,7 +1825,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__md5sum__67
+LOCAL_MODULE := toybox_vendor__md5sum__70
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1778,7 +1842,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__microcom__68
+LOCAL_MODULE := toybox_vendor__microcom__71
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1795,7 +1859,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__mkdir__69
+LOCAL_MODULE := toybox_vendor__mkdir__72
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1812,7 +1876,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__mkfifo__70
+LOCAL_MODULE := toybox_vendor__mkfifo__73
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1829,7 +1893,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__mknod__71
+LOCAL_MODULE := toybox_vendor__mknod__74
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1846,7 +1910,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__mkswap__72
+LOCAL_MODULE := toybox_vendor__mkswap__75
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1863,7 +1927,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__mktemp__73
+LOCAL_MODULE := toybox_vendor__mktemp__76
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1880,7 +1944,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__modinfo__74
+LOCAL_MODULE := toybox_vendor__modinfo__77
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1897,7 +1961,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__modprobe__75
+LOCAL_MODULE := toybox_vendor__modprobe__78
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1914,7 +1978,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__more__76
+LOCAL_MODULE := toybox_vendor__more__79
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1931,7 +1995,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__mount__77
+LOCAL_MODULE := toybox_vendor__mount__80
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1948,7 +2012,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__mountpoint__78
+LOCAL_MODULE := toybox_vendor__mountpoint__81
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1965,7 +2029,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__mv__79
+LOCAL_MODULE := toybox_vendor__mv__82
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1982,7 +2046,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__netstat__80
+LOCAL_MODULE := toybox_vendor__netstat__83
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -1999,7 +2063,24 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__nice__81
+LOCAL_MODULE := toolbox__newfs_msdos__84
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := google
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /vendor/bin/toolbox
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/vendor/bin/newfs_msdos
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
+$(LOCAL_BUILT_MODULE):
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := toybox_vendor__nice__85
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2016,7 +2097,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__nl__82
+LOCAL_MODULE := toybox_vendor__nl__86
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2033,7 +2114,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__nohup__83
+LOCAL_MODULE := toybox_vendor__nohup__87
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2050,7 +2131,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__od__84
+LOCAL_MODULE := toybox_vendor__od__88
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2067,7 +2148,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__paste__85
+LOCAL_MODULE := toybox_vendor__paste__89
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2084,7 +2165,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__patch__86
+LOCAL_MODULE := toybox_vendor__patch__90
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2101,7 +2182,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__pgrep__87
+LOCAL_MODULE := toybox_vendor__pgrep__91
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2118,7 +2199,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__pidof__88
+LOCAL_MODULE := toybox_vendor__pidof__92
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2135,7 +2216,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__pkill__89
+LOCAL_MODULE := toybox_vendor__pkill__93
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2152,7 +2233,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__pmap__90
+LOCAL_MODULE := toybox_vendor__pmap__94
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2169,7 +2250,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__printenv__91
+LOCAL_MODULE := toybox_vendor__printenv__95
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2186,7 +2267,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__printf__92
+LOCAL_MODULE := toybox_vendor__printf__96
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2203,7 +2284,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__ps__93
+LOCAL_MODULE := toybox_vendor__ps__97
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2220,7 +2301,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__pwd__94
+LOCAL_MODULE := toybox_vendor__pwd__98
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2237,7 +2318,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__readlink__95
+LOCAL_MODULE := toybox_vendor__readlink__99
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2254,7 +2335,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__realpath__96
+LOCAL_MODULE := toybox_vendor__realpath__100
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2271,7 +2352,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__renice__97
+LOCAL_MODULE := toybox_vendor__renice__101
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2288,7 +2369,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__restorecon__98
+LOCAL_MODULE := toybox_vendor__restorecon__102
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2305,7 +2386,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__rm__99
+LOCAL_MODULE := toybox_vendor__rm__103
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2322,7 +2403,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__rmdir__100
+LOCAL_MODULE := toybox_vendor__rmdir__104
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2339,7 +2420,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__rmmod__101
+LOCAL_MODULE := toybox_vendor__rmmod__105
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2356,7 +2437,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__runcon__102
+LOCAL_MODULE := toybox_vendor__runcon__106
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2373,7 +2454,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sed__103
+LOCAL_MODULE := toybox_vendor__sed__107
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2390,7 +2471,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sendevent__104
+LOCAL_MODULE := toybox_vendor__sendevent__108
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2407,7 +2488,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__seq__105
+LOCAL_MODULE := toybox_vendor__seq__109
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2424,7 +2505,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__setenforce__106
+LOCAL_MODULE := toybox_vendor__setenforce__110
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2441,7 +2522,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__setprop__107
+LOCAL_MODULE := toybox_vendor__setprop__111
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2458,7 +2539,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__setsid__108
+LOCAL_MODULE := toybox_vendor__setsid__112
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2475,7 +2556,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sha1sum__109
+LOCAL_MODULE := toybox_vendor__sha1sum__113
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2492,7 +2573,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sha224sum__110
+LOCAL_MODULE := toybox_vendor__sha224sum__114
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2509,7 +2590,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sha256sum__111
+LOCAL_MODULE := toybox_vendor__sha256sum__115
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2526,7 +2607,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sha384sum__112
+LOCAL_MODULE := toybox_vendor__sha384sum__116
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2543,7 +2624,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sha512sum__113
+LOCAL_MODULE := toybox_vendor__sha512sum__117
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2560,7 +2641,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sleep__114
+LOCAL_MODULE := toybox_vendor__sleep__118
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2577,7 +2658,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sort__115
+LOCAL_MODULE := toybox_vendor__sort__119
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2594,7 +2675,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__split__116
+LOCAL_MODULE := toybox_vendor__split__120
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2611,7 +2692,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__start__117
+LOCAL_MODULE := toybox_vendor__start__121
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2628,7 +2709,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__stat__118
+LOCAL_MODULE := toybox_vendor__stat__122
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2645,7 +2726,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__stop__119
+LOCAL_MODULE := toybox_vendor__stop__123
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2662,7 +2743,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__strings__120
+LOCAL_MODULE := toybox_vendor__strings__124
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2679,7 +2760,24 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__swapoff__121
+LOCAL_MODULE := toybox_vendor__stty__125
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := google
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /vendor/bin/toybox_vendor
+$(LOCAL_BUILT_MODULE): SYMLINK := $(PRODUCT_OUT)/vendor/bin/stty
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
+$(LOCAL_BUILT_MODULE):
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := toybox_vendor__swapoff__126
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2696,7 +2794,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__swapon__122
+LOCAL_MODULE := toybox_vendor__swapon__127
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2713,7 +2811,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sync__123
+LOCAL_MODULE := toybox_vendor__sync__128
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2730,7 +2828,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__sysctl__124
+LOCAL_MODULE := toybox_vendor__sysctl__129
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2747,7 +2845,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__tac__125
+LOCAL_MODULE := toybox_vendor__tac__130
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2764,7 +2862,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__tail__126
+LOCAL_MODULE := toybox_vendor__tail__131
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2781,7 +2879,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__tar__127
+LOCAL_MODULE := toybox_vendor__tar__132
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2798,7 +2896,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__taskset__128
+LOCAL_MODULE := toybox_vendor__taskset__133
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2815,7 +2913,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__tee__129
+LOCAL_MODULE := toybox_vendor__tee__134
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2832,7 +2930,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__time__130
+LOCAL_MODULE := toybox_vendor__time__135
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2849,7 +2947,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__timeout__131
+LOCAL_MODULE := toybox_vendor__timeout__136
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2866,7 +2964,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__top__132
+LOCAL_MODULE := toybox_vendor__top__137
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2883,7 +2981,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__touch__133
+LOCAL_MODULE := toybox_vendor__touch__138
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2900,7 +2998,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__tr__134
+LOCAL_MODULE := toybox_vendor__tr__139
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2917,7 +3015,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__true__135
+LOCAL_MODULE := toybox_vendor__true__140
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2934,7 +3032,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__truncate__136
+LOCAL_MODULE := toybox_vendor__truncate__141
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2951,7 +3049,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__tty__137
+LOCAL_MODULE := toybox_vendor__tty__142
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2968,7 +3066,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__ulimit__138
+LOCAL_MODULE := toybox_vendor__ulimit__143
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -2985,7 +3083,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__umount__139
+LOCAL_MODULE := toybox_vendor__umount__144
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3002,7 +3100,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__uname__140
+LOCAL_MODULE := toybox_vendor__uname__145
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3019,7 +3117,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__uniq__141
+LOCAL_MODULE := toybox_vendor__uniq__146
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3036,7 +3134,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__unix2dos__142
+LOCAL_MODULE := toybox_vendor__unix2dos__147
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3053,7 +3151,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__uptime__143
+LOCAL_MODULE := toybox_vendor__uptime__148
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3070,7 +3168,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__usleep__144
+LOCAL_MODULE := toybox_vendor__usleep__149
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3087,7 +3185,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__uudecode__145
+LOCAL_MODULE := toybox_vendor__uudecode__150
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3104,7 +3202,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__uuencode__146
+LOCAL_MODULE := toybox_vendor__uuencode__151
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3121,7 +3219,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__vmstat__147
+LOCAL_MODULE := toybox_vendor__vmstat__152
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3138,7 +3236,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__wc__148
+LOCAL_MODULE := toybox_vendor__wc__153
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3155,7 +3253,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__which__149
+LOCAL_MODULE := toybox_vendor__which__154
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3172,7 +3270,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__whoami__150
+LOCAL_MODULE := toybox_vendor__whoami__155
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3189,7 +3287,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__xargs__151
+LOCAL_MODULE := toybox_vendor__xargs__156
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3206,7 +3304,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__xxd__152
+LOCAL_MODULE := toybox_vendor__xxd__157
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3223,7 +3321,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__yes__153
+LOCAL_MODULE := toybox_vendor__yes__158
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google
@@ -3240,7 +3338,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) touch $@
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := toybox_vendor__zcat__154
+LOCAL_MODULE := toybox_vendor__zcat__159
 LOCAL_MODULE_CLASS := FAKE
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := google

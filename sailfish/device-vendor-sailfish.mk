@@ -45,7 +45,6 @@ PRODUCT_PACKAGES += \
     datastatusnotification \
     embms \
     fastdormancy \
-    ims \
     imssettings \
     QAS_DVC_MSP \
     QtiTelephonyService \
@@ -53,14 +52,12 @@ PRODUCT_PACKAGES += \
     RCSBootstraputil \
     SecureExtAuthService \
     shutdownlistener \
-    SSRestartDetector \
     TimeService \
     vzw_msdc_api
 
 # Prebuilt APKs/JARs from 'vendor/framework'
 PRODUCT_PACKAGES += \
     embmslibrary \
-    qcrilhook \
     QtiTelephonyServicelibrary \
     qti-vzw-ims-internal \
     rcsservice
@@ -71,11 +68,14 @@ PRODUCT_PACKAGES += \
 
 # Prebuilt APKs/JARs from 'proprietary/app'
 PRODUCT_PACKAGES += \
+    ims \
+    SSRestartDetector \
     VZWAPNLib
 
-# Prebuilt APKs/JARs from 'proprietary/framework'
+# Prebuilt APKs libs symlinks from 'proprietary/app'
 PRODUCT_PACKAGES += \
-    VerizonUnifiedSettings
+    libimsmedia_jni_64.so \
+    libimscamera_jni_64.so
 
 # Prebuilt APKs/JARs from 'proprietary/priv-app'
 PRODUCT_PACKAGES += \
@@ -106,8 +106,8 @@ PRODUCT_PACKAGES += \
 
 # Prebuilt APKs libs symlinks from 'proprietary/priv-app'
 PRODUCT_PACKAGES += \
-    libdmjavaplugin_32.so \
-    libdmengine_32.so
+    libdmengine_32.so \
+    libdmjavaplugin_32.so
 
 # Standalone symbolic links
 PRODUCT_PACKAGES += \
@@ -134,138 +134,143 @@ PRODUCT_PACKAGES += \
     toybox_vendor__cpio__20 \
     toybox_vendor__cut__21 \
     toybox_vendor__date__22 \
-    toybox_vendor__df__23 \
-    toybox_vendor__diff__24 \
-    toybox_vendor__dirname__25 \
-    toybox_vendor__dmesg__26 \
-    toybox_vendor__dos2unix__27 \
-    toybox_vendor__du__28 \
-    toybox_vendor__echo__29 \
-    grep__egrep__30 \
-    toybox_vendor__env__31 \
-    toybox_vendor__expand__32 \
-    toybox_vendor__expr__33 \
-    toybox_vendor__fallocate__34 \
-    toybox_vendor__false__35 \
-    grep__fgrep__36 \
-    toybox_vendor__file__37 \
-    toybox_vendor__find__38 \
-    toybox_vendor__flock__39 \
-    toybox_vendor__free__40 \
-    toybox_vendor__getenforce__41 \
-    toybox_vendor__getprop__42 \
-    toybox_vendor__groups__43 \
-    toybox_vendor__gunzip__44 \
-    toybox_vendor__gzip__45 \
-    toybox_vendor__head__46 \
-    toybox_vendor__hostname__47 \
-    toybox_vendor__hwclock__48 \
-    toybox_vendor__id__49 \
-    toybox_vendor__ifconfig__50 \
-    toybox_vendor__inotifyd__51 \
-    toybox_vendor__insmod__52 \
-    toybox_vendor__ionice__53 \
-    toybox_vendor__iorenice__54 \
-    toybox_vendor__kill__55 \
-    toybox_vendor__killall__56 \
-    toybox_vendor__ln__57 \
-    toybox_vendor__load_policy__58 \
-    toybox_vendor__log__59 \
-    toybox_vendor__logname__60 \
-    toybox_vendor__losetup__61 \
-    toybox_vendor__ls__62 \
-    toybox_vendor__lsmod__63 \
-    toybox_vendor__lsof__64 \
-    toybox_vendor__lspci__65 \
-    toybox_vendor__lsusb__66 \
-    toybox_vendor__md5sum__67 \
-    toybox_vendor__microcom__68 \
-    toybox_vendor__mkdir__69 \
-    toybox_vendor__mkfifo__70 \
-    toybox_vendor__mknod__71 \
-    toybox_vendor__mkswap__72 \
-    toybox_vendor__mktemp__73 \
-    toybox_vendor__modinfo__74 \
-    toybox_vendor__modprobe__75 \
-    toybox_vendor__more__76 \
-    toybox_vendor__mount__77 \
-    toybox_vendor__mountpoint__78 \
-    toybox_vendor__mv__79 \
-    toybox_vendor__netstat__80 \
-    toybox_vendor__nice__81 \
-    toybox_vendor__nl__82 \
-    toybox_vendor__nohup__83 \
-    toybox_vendor__od__84 \
-    toybox_vendor__paste__85 \
-    toybox_vendor__patch__86 \
-    toybox_vendor__pgrep__87 \
-    toybox_vendor__pidof__88 \
-    toybox_vendor__pkill__89 \
-    toybox_vendor__pmap__90 \
-    toybox_vendor__printenv__91 \
-    toybox_vendor__printf__92 \
-    toybox_vendor__ps__93 \
-    toybox_vendor__pwd__94 \
-    toybox_vendor__readlink__95 \
-    toybox_vendor__realpath__96 \
-    toybox_vendor__renice__97 \
-    toybox_vendor__restorecon__98 \
-    toybox_vendor__rm__99 \
-    toybox_vendor__rmdir__100 \
-    toybox_vendor__rmmod__101 \
-    toybox_vendor__runcon__102 \
-    toybox_vendor__sed__103 \
-    toybox_vendor__sendevent__104 \
-    toybox_vendor__seq__105 \
-    toybox_vendor__setenforce__106 \
-    toybox_vendor__setprop__107 \
-    toybox_vendor__setsid__108 \
-    toybox_vendor__sha1sum__109 \
-    toybox_vendor__sha224sum__110 \
-    toybox_vendor__sha256sum__111 \
-    toybox_vendor__sha384sum__112 \
-    toybox_vendor__sha512sum__113 \
-    toybox_vendor__sleep__114 \
-    toybox_vendor__sort__115 \
-    toybox_vendor__split__116 \
-    toybox_vendor__start__117 \
-    toybox_vendor__stat__118 \
-    toybox_vendor__stop__119 \
-    toybox_vendor__strings__120 \
-    toybox_vendor__swapoff__121 \
-    toybox_vendor__swapon__122 \
-    toybox_vendor__sync__123 \
-    toybox_vendor__sysctl__124 \
-    toybox_vendor__tac__125 \
-    toybox_vendor__tail__126 \
-    toybox_vendor__tar__127 \
-    toybox_vendor__taskset__128 \
-    toybox_vendor__tee__129 \
-    toybox_vendor__time__130 \
-    toybox_vendor__timeout__131 \
-    toybox_vendor__top__132 \
-    toybox_vendor__touch__133 \
-    toybox_vendor__tr__134 \
-    toybox_vendor__true__135 \
-    toybox_vendor__truncate__136 \
-    toybox_vendor__tty__137 \
-    toybox_vendor__ulimit__138 \
-    toybox_vendor__umount__139 \
-    toybox_vendor__uname__140 \
-    toybox_vendor__uniq__141 \
-    toybox_vendor__unix2dos__142 \
-    toybox_vendor__uptime__143 \
-    toybox_vendor__usleep__144 \
-    toybox_vendor__uudecode__145 \
-    toybox_vendor__uuencode__146 \
-    toybox_vendor__vmstat__147 \
-    toybox_vendor__wc__148 \
-    toybox_vendor__which__149 \
-    toybox_vendor__whoami__150 \
-    toybox_vendor__xargs__151 \
-    toybox_vendor__xxd__152 \
-    toybox_vendor__yes__153 \
-    toybox_vendor__zcat__154 \
+    toolbox__dd__23 \
+    toybox_vendor__df__24 \
+    toybox_vendor__diff__25 \
+    toybox_vendor__dirname__26 \
+    toybox_vendor__dmesg__27 \
+    toybox_vendor__dos2unix__28 \
+    toybox_vendor__du__29 \
+    toybox_vendor__echo__30 \
+    grep__egrep__31 \
+    toybox_vendor__env__32 \
+    toybox_vendor__expand__33 \
+    toybox_vendor__expr__34 \
+    toybox_vendor__fallocate__35 \
+    toybox_vendor__false__36 \
+    grep__fgrep__37 \
+    toybox_vendor__file__38 \
+    toybox_vendor__find__39 \
+    toybox_vendor__flock__40 \
+    toybox_vendor__fmt__41 \
+    toybox_vendor__free__42 \
+    toybox_vendor__getenforce__43 \
+    toolbox__getevent__44 \
+    toolbox__getprop__45 \
+    toybox_vendor__groups__46 \
+    toybox_vendor__gunzip__47 \
+    toybox_vendor__gzip__48 \
+    toybox_vendor__head__49 \
+    toybox_vendor__hostname__50 \
+    toybox_vendor__hwclock__51 \
+    toybox_vendor__id__52 \
+    toybox_vendor__ifconfig__53 \
+    toybox_vendor__inotifyd__54 \
+    toybox_vendor__insmod__55 \
+    toybox_vendor__ionice__56 \
+    toybox_vendor__iorenice__57 \
+    toybox_vendor__kill__58 \
+    toybox_vendor__killall__59 \
+    toybox_vendor__ln__60 \
+    toybox_vendor__load_policy__61 \
+    toybox_vendor__log__62 \
+    toybox_vendor__logname__63 \
+    toybox_vendor__losetup__64 \
+    toybox_vendor__ls__65 \
+    toybox_vendor__lsmod__66 \
+    toybox_vendor__lsof__67 \
+    toybox_vendor__lspci__68 \
+    toybox_vendor__lsusb__69 \
+    toybox_vendor__md5sum__70 \
+    toybox_vendor__microcom__71 \
+    toybox_vendor__mkdir__72 \
+    toybox_vendor__mkfifo__73 \
+    toybox_vendor__mknod__74 \
+    toybox_vendor__mkswap__75 \
+    toybox_vendor__mktemp__76 \
+    toybox_vendor__modinfo__77 \
+    toybox_vendor__modprobe__78 \
+    toybox_vendor__more__79 \
+    toybox_vendor__mount__80 \
+    toybox_vendor__mountpoint__81 \
+    toybox_vendor__mv__82 \
+    toybox_vendor__netstat__83 \
+    toolbox__newfs_msdos__84 \
+    toybox_vendor__nice__85 \
+    toybox_vendor__nl__86 \
+    toybox_vendor__nohup__87 \
+    toybox_vendor__od__88 \
+    toybox_vendor__paste__89 \
+    toybox_vendor__patch__90 \
+    toybox_vendor__pgrep__91 \
+    toybox_vendor__pidof__92 \
+    toybox_vendor__pkill__93 \
+    toybox_vendor__pmap__94 \
+    toybox_vendor__printenv__95 \
+    toybox_vendor__printf__96 \
+    toybox_vendor__ps__97 \
+    toybox_vendor__pwd__98 \
+    toybox_vendor__readlink__99 \
+    toybox_vendor__realpath__100 \
+    toybox_vendor__renice__101 \
+    toybox_vendor__restorecon__102 \
+    toybox_vendor__rm__103 \
+    toybox_vendor__rmdir__104 \
+    toybox_vendor__rmmod__105 \
+    toybox_vendor__runcon__106 \
+    toybox_vendor__sed__107 \
+    toybox_vendor__sendevent__108 \
+    toybox_vendor__seq__109 \
+    toybox_vendor__setenforce__110 \
+    toybox_vendor__setprop__111 \
+    toybox_vendor__setsid__112 \
+    toybox_vendor__sha1sum__113 \
+    toybox_vendor__sha224sum__114 \
+    toybox_vendor__sha256sum__115 \
+    toybox_vendor__sha384sum__116 \
+    toybox_vendor__sha512sum__117 \
+    toybox_vendor__sleep__118 \
+    toybox_vendor__sort__119 \
+    toybox_vendor__split__120 \
+    toybox_vendor__start__121 \
+    toybox_vendor__stat__122 \
+    toybox_vendor__stop__123 \
+    toybox_vendor__strings__124 \
+    toybox_vendor__stty__125 \
+    toybox_vendor__swapoff__126 \
+    toybox_vendor__swapon__127 \
+    toybox_vendor__sync__128 \
+    toybox_vendor__sysctl__129 \
+    toybox_vendor__tac__130 \
+    toybox_vendor__tail__131 \
+    toybox_vendor__tar__132 \
+    toybox_vendor__taskset__133 \
+    toybox_vendor__tee__134 \
+    toybox_vendor__time__135 \
+    toybox_vendor__timeout__136 \
+    toybox_vendor__top__137 \
+    toybox_vendor__touch__138 \
+    toybox_vendor__tr__139 \
+    toybox_vendor__true__140 \
+    toybox_vendor__truncate__141 \
+    toybox_vendor__tty__142 \
+    toybox_vendor__ulimit__143 \
+    toybox_vendor__umount__144 \
+    toybox_vendor__uname__145 \
+    toybox_vendor__uniq__146 \
+    toybox_vendor__unix2dos__147 \
+    toybox_vendor__uptime__148 \
+    toybox_vendor__usleep__149 \
+    toybox_vendor__uudecode__150 \
+    toybox_vendor__uuencode__151 \
+    toybox_vendor__vmstat__152 \
+    toybox_vendor__wc__153 \
+    toybox_vendor__which__154 \
+    toybox_vendor__whoami__155 \
+    toybox_vendor__xargs__156 \
+    toybox_vendor__xxd__157 \
+    toybox_vendor__yes__158 \
+    toybox_vendor__zcat__159 \
     eglSubDriverAndroid_64.so__eglSubDriverAndroid.so \
     libEGL_adreno_64.so__libEGL_adreno.so \
     libGLESv1_CM_adreno_64.so__libGLESv1_CM_adreno.so \

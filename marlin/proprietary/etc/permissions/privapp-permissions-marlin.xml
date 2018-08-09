@@ -26,14 +26,7 @@
 
     <privapp-permissions package="com.quicinc.cne.CNEService">
         <permission name="android.permission.PACKET_KEEPALIVE_OFFLOAD"/>
-    </privapp-permissions>
-
-    <privapp-permissions package="com.tmobile.planprovider">
-        <permission name="android.permission.MANAGE_SUBSCRIPTION_PLANS"/>
-    </privapp-permissions>
-
-    <privapp-permissions package="com.google.android.ims">
-        <permission name="android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS"/>
-        <permission name="android.permission.PACKET_KEEPALIVE_OFFLOAD"/>
+        <!-- TODO: to be removed b/72863826 -->
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
     </privapp-permissions>
 </permissions>
