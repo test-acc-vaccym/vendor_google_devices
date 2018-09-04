@@ -15,8 +15,6 @@
 $(call inherit-product, vendor/google_devices/sailfish/sailfish-vendor-blobs.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.egl=adreno \
-    ro.hardware.fingerprint=fpc \
     ro.control_privapp_permissions=enforce
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
@@ -34,7 +32,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.est_max_time=600 \
     ro.wallpapers_loc_request_suw=true \
     ro.opa.eligible_device=true \
-    ro.storage_manager.enabled=true
+    ro.storage_manager.enabled=true \
+    ro.boot.vendor.overlay.theme=com.google.android.theme.pixel
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/google_devices/sailfish/overlay
 
@@ -76,6 +75,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libimsmedia_jni_64.so \
     libimscamera_jni_64.so
+
+# Prebuilt APKs/JARs from 'proprietary/framework'
+PRODUCT_PACKAGES += \
+    libhwinfo \
+    PowerAnomalyDataModemInterface \
+    PowerAnomalyStub \
+    qcrilhook \
+    VerizonUnifiedSettings
 
 # Prebuilt APKs/JARs from 'proprietary/priv-app'
 PRODUCT_PACKAGES += \
@@ -291,4 +298,8 @@ PRODUCT_PACKAGES += \
     libminui \
     nanotool \
     PresencePolling \
-    RcsService
+    RcsService \
+    bufferhubd \
+    vr_hwc \
+    performanced \
+    virtual_touchpad

@@ -13,32 +13,19 @@
 # limitations under the License.
 #
 PRODUCT_COPY_FILES += \
-    vendor/google_devices/marlin/proprietary/bin/awk:$(TARGET_COPY_OUT_SYSTEM)/bin/awk:google \
-    vendor/google_devices/marlin/proprietary/bin/blank_screen:$(TARGET_COPY_OUT_SYSTEM)/bin/blank_screen:google \
-    vendor/google_devices/marlin/proprietary/bin/bpfloader:$(TARGET_COPY_OUT_SYSTEM)/bin/bpfloader:google \
-    vendor/google_devices/marlin/proprietary/bin/incident_helper:$(TARGET_COPY_OUT_SYSTEM)/bin/incident_helper:google \
-    vendor/google_devices/marlin/proprietary/bin/keystore_cli_v2:$(TARGET_COPY_OUT_SYSTEM)/bin/keystore_cli_v2:google \
     vendor/google_devices/marlin/proprietary/bin/move_widevine_data.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/move_widevine_data.sh:google \
-    vendor/google_devices/marlin/proprietary/bin/perfetto:$(TARGET_COPY_OUT_SYSTEM)/bin/perfetto:google \
     vendor/google_devices/marlin/proprietary/bin/pktlogconf:$(TARGET_COPY_OUT_SYSTEM)/bin/pktlogconf:google \
     vendor/google_devices/marlin/proprietary/bin/qmi_simple_ril_test:$(TARGET_COPY_OUT_SYSTEM)/bin/qmi_simple_ril_test:google \
-    vendor/google_devices/marlin/proprietary/bin/sload_f2fs:$(TARGET_COPY_OUT_SYSTEM)/bin/sload_f2fs:google \
-    vendor/google_devices/marlin/proprietary/bin/statsd:$(TARGET_COPY_OUT_SYSTEM)/bin/statsd:google \
-    vendor/google_devices/marlin/proprietary/bin/traced:$(TARGET_COPY_OUT_SYSTEM)/bin/traced:google \
-    vendor/google_devices/marlin/proprietary/bin/traced_probes:$(TARGET_COPY_OUT_SYSTEM)/bin/traced_probes:google \
-    vendor/google_devices/marlin/proprietary/bin/usbd:$(TARGET_COPY_OUT_SYSTEM)/bin/usbd:google \
-    vendor/google_devices/marlin/proprietary/bin/vold_prepare_subdirs:$(TARGET_COPY_OUT_SYSTEM)/bin/vold_prepare_subdirs:google \
-    vendor/google_devices/marlin/proprietary/bin/wait_for_keymaster:$(TARGET_COPY_OUT_SYSTEM)/bin/wait_for_keymaster:google \
     vendor/google_devices/marlin/proprietary/etc/cne/Nexus/ATT/ATT_profiles.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/cne/Nexus/ATT/ATT_profiles.xml:google \
     vendor/google_devices/marlin/proprietary/etc/cne/Nexus/ROW/ROW_profiles.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/cne/Nexus/ROW/ROW_profiles.xml:google \
     vendor/google_devices/marlin/proprietary/etc/cne/Nexus/VZW/VZW_profiles.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/cne/Nexus/VZW/VZW_profiles.xml:google \
     vendor/google_devices/marlin/proprietary/etc/old-apns-conf.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/old-apns-conf.xml:google \
     vendor/google_devices/marlin/proprietary/etc/permissions/com.android.omadm.service.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.android.omadm.service.xml:google \
-    vendor/google_devices/marlin/proprietary/framework/qcrilhook.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/qcrilhook.jar:qcom \
     vendor/google_devices/marlin/proprietary/etc/permissions/com.android.sdm.plugins.connmo.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.android.sdm.plugins.connmo.xml:google \
     vendor/google_devices/marlin/proprietary/etc/permissions/com.android.sdm.plugins.sprintdm.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.android.sdm.plugins.sprintdm.xml:google \
     vendor/google_devices/marlin/proprietary/etc/permissions/com.android.vzwomatrigger.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.android.vzwomatrigger.xml:google \
     vendor/google_devices/marlin/proprietary/etc/permissions/com.customermobile.preload.vzw.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.customermobile.preload.vzw.xml:google \
+    vendor/google_devices/marlin/proprietary/etc/permissions/com.google.android.hardwareinfo.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.google.android.hardwareinfo.xml:google \
     vendor/google_devices/marlin/proprietary/etc/permissions/com.verizon.apn.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.verizon.apn.xml:google \
     vendor/google_devices/marlin/proprietary/etc/permissions/com.verizon.embms.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.verizon.embms.xml:google \
     vendor/google_devices/marlin/proprietary/etc/permissions/com.verizon.llkagent.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.verizon.llkagent.xml:google \
@@ -50,10 +37,10 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/proprietary/etc/permissions/privapp-permissions-marlin.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-marlin.xml:google \
     vendor/google_devices/marlin/proprietary/etc/permissions/vzw_mvs_permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vzw_mvs_permissions.xml:google \
     vendor/google_devices/marlin/proprietary/etc/sysconfig/google_build.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/google_build.xml:google \
-    vendor/google_devices/marlin/proprietary/etc/sysconfig/google_vr_build.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/google_vr_build.xml:google \
     vendor/google_devices/marlin/proprietary/etc/sysconfig/google.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/google.xml:google \
     vendor/google_devices/marlin/proprietary/etc/sysconfig/marlin_common.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/marlin_common.xml:google \
     vendor/google_devices/marlin/proprietary/etc/sysconfig/nexus.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/nexus.xml:google \
+    vendor/google_devices/marlin/proprietary/etc/sysconfig/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel_2016_exclusive.xml:google \
     vendor/google_devices/marlin/proprietary/etc/sysconfig/whitelist_com.android.omadm.service.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/whitelist_com.android.omadm.service.xml:google \
     vendor/google_devices/marlin/proprietary/lib64/libaptX_encoder.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libaptX_encoder.so:google \
     vendor/google_devices/marlin/proprietary/lib64/libaptXHD_encoder.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libaptXHD_encoder.so:google \
@@ -110,7 +97,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.graphics.composer@2.1-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.graphics.composer@2.1-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.health@2.0-service.marlin:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.health@2.0-service.marlin:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.keymaster@3.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.keymaster@3.0-service:google \
-    vendor/google_devices/marlin/vendor/bin/hw/android.hardware.light@2.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.light@2.0-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.media.omx@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.media.omx@1.0-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.memtrack@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.memtrack@1.0-service:google \
     vendor/google_devices/marlin/vendor/bin/hw/android.hardware.nfc@1.1-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.nfc@1.1-service:google \
@@ -202,7 +188,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/etc/camera/msm8996_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/msm8996_camera.xml:google \
     vendor/google_devices/marlin/vendor/etc/data/dsi_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/dsi_config.xml:google \
     vendor/google_devices/marlin/vendor/etc/data/netmgr_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/netmgr_config.xml:google \
-    vendor/google_devices/marlin/vendor/etc/default-permissions/default-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/default-permissions.xml:google \
     vendor/google_devices/marlin/vendor/etc/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml:google \
     vendor/google_devices/marlin/vendor/etc/diag/CHRE.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/diag/CHRE.cfg:google \
     vendor/google_devices/marlin/vendor/etc/diag/IMS.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/diag/IMS.cfg:google \
@@ -232,7 +217,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.composer@2.1-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.health@2.0-service.marlin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.health@2.0-service.marlin.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.keymaster@3.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.keymaster@3.0-service.rc:google \
-    vendor/google_devices/marlin/vendor/etc/init/android.hardware.light@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.light@2.0-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.media.omx@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.omx@1.0-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.memtrack@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.memtrack@1.0-service.rc:google \
     vendor/google_devices/marlin/vendor/etc/init/android.hardware.nfc@1.1-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.nfc@1.1-service.rc:google \
@@ -505,7 +489,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.graphics.composer@2.1-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.graphics.composer@2.1-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3.0-impl.so:google \
-    vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.light@2.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.light@2.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.memtrack@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.memtrack@1.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.renderscript@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.renderscript@1.0-impl.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/android.hardware.sensors@1.0-impl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/android.hardware.sensors@1.0-impl.so:google \
@@ -523,8 +506,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/lib64/hw/gralloc.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/gralloc.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/hwcomposer.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/hwcomposer.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/keystore.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/keystore.msm8996.so:google \
-    vendor/google_devices/marlin/vendor/lib64/hw/lights.marlin.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/lights.marlin.so:google \
-    vendor/google_devices/marlin/vendor/lib64/hw/lights.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/lights.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/local_time.default.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/local_time.default.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/memtrack.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/memtrack.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib64/hw/power.default.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/power.default.so:google \
@@ -753,8 +734,6 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/lib/hw/gralloc.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/gralloc.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/hwcomposer.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/hwcomposer.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/keystore.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/keystore.msm8996.so:google \
-    vendor/google_devices/marlin/vendor/lib/hw/lights.marlin.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/lights.marlin.so:google \
-    vendor/google_devices/marlin/vendor/lib/hw/lights.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/lights.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/local_time.default.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/local_time.default.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/memtrack.msm8996.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/memtrack.msm8996.so:google \
     vendor/google_devices/marlin/vendor/lib/hw/power.default.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/power.default.so:google \
@@ -1080,6 +1059,9 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/vendor/usr/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl:google \
     vendor/google_devices/marlin/vendor/usr/keylayout/qpnp_pon.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/qpnp_pon.kl:google \
     vendor/google_devices/marlin/vendor/usr/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl:google
+
+PRODUCT_COPY_FILES += \
+    vendor/google_devices/marlin/proprietary/priv-app/MyVerizonServices/lib/arm64/libmotricity.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MyVerizonServices/lib/arm64/libmotricity.so:google
 
 PRODUCT_COPY_FILES += \
     vendor/google_devices/marlin/proprietary/lib64/libimsmedia_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimsmedia_jni.so:google \
