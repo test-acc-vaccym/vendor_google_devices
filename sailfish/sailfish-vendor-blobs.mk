@@ -1063,8 +1063,8 @@ PRODUCT_COPY_FILES += \
     vendor/google_devices/sailfish/proprietary/priv-app/MyVerizonServices/lib/arm64/libmotricity.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MyVerizonServices/lib/arm64/libmotricity.so:google
 
 PRODUCT_COPY_FILES += \
-    vendor/google_devices/sailfish/proprietary/lib64/libimsmedia_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimsmedia_jni.so:google \
     vendor/google_devices/sailfish/proprietary/lib64/libimscamera_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimscamera_jni.so:google \
-    vendor/google_devices/sailfish/proprietary/lib/libdmengine.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libdmengine.so:google \
-    vendor/google_devices/sailfish/proprietary/lib/libdmjavaplugin.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libdmjavaplugin.so:google
+    vendor/google_devices/sailfish/proprietary/lib64/libimsmedia_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimsmedia_jni.so:google \
+    vendor/google_devices/sailfish/proprietary/lib/libdmjavaplugin.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libdmjavaplugin.so:google \
+    vendor/google_devices/sailfish/proprietary/lib/libdmengine.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libdmengine.so:google
 

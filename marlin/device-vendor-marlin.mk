@@ -73,12 +73,14 @@ PRODUCT_PACKAGES += \
 
 # Prebuilt APKs libs symlinks from 'proprietary/app'
 PRODUCT_PACKAGES += \
-    libimsmedia_jni_64.so \
-    libimscamera_jni_64.so
+    libimscamera_jni_64.so \
+    libimsmedia_jni_64.so
 
 # Prebuilt APKs/JARs from 'proprietary/framework'
 PRODUCT_PACKAGES += \
     libhwinfo \
+    LowPowerMonitorDeviceInterface \
+    LowPowerMonitorDeviceStub \
     PowerAnomalyDataModemInterface \
     PowerAnomalyStub \
     qcrilhook \
@@ -113,8 +115,8 @@ PRODUCT_PACKAGES += \
 
 # Prebuilt APKs libs symlinks from 'proprietary/priv-app'
 PRODUCT_PACKAGES += \
-    libdmengine_32.so \
-    libdmjavaplugin_32.so
+    libdmjavaplugin_32.so \
+    libdmengine_32.so
 
 # Standalone symbolic links
 PRODUCT_PACKAGES += \
